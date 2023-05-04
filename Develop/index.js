@@ -22,12 +22,7 @@ inquirer
         {
             type:'input',
             name:'instructions',
-            message:'How isthis project to be used?'
-        },
-        {
-            type:'input',
-            name:'installation',
-            message:'What steps are required to install this project?'
+            message:'How is this project to be used?'
         },
         {
             type:'input',
@@ -36,43 +31,66 @@ inquirer
         },
         {
             type:'input',
+            name:'tests',
+            message:'Provide examples on how to run tests.'
+        },
+        {
+            type:'input',
             name:'credits',
             message:'List any collaborators, third-party attribution, creators, or tutorials, and where to find them.'
         },
         {
-            type:'input',
+            type:'list',
             name:'license',
-            message:'Add a license for your project'
-        }
+            message:'Add a license for your project',
+            choices:['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License']
+        },
+        {
+            type:'input',
+            name:'username',
+            message:'What is your GitHub username?'
+        },
+        {
+            type:'input',
+            name:'email',
+            message:'What is your email address?'
+        },
     ])
     .then((answers) => {
-        const data =`
-        #${answers.title}
-        
-        ## Description
-        
-        ${answers.description}
-        
-        - Motivation: 
-        
-        ${answers.motivation}
-        
-        ## Installation
+const licenseUrl = getBadge(answers.license);
+const data =`
+![shields.io](${licenseUrl})
 
-        ${answers.installation}
-        
-        ## Usage
+# ${answers.title}
 
-        ${answers.usage}
-        
-        ## Credits
+## Description
 
-        ${answers.credits}
-        
-        ## License
-        
-        ${answers.license}
-        `;
+${answers.description}
+
+## Installation
+
+${answers.installation}
+
+## Usage
+
+${answers.usage}
+
+## Tests
+
+${answers. tests}
+
+## Credits
+
+${answers.credits}
+
+## License
+
+This project is licensed under the ${answers.license}
+
+## Questions
+
+Reach out with any questions and inquiries at ${answers.email}. You can also find similar work at ${answers.username}
+`;
 
         writeToFile('README.md', data);
     })
@@ -89,6 +107,25 @@ function writeToFile(fileName, data) {
             console.log('README successfully created!')
         }
     });
+}
+
+function getBadge(license) {
+    var badgeURL
+    switch (license) {
+        case 'MIT License':
+            badgeURL = 'https://img.shields.io/badge/license-MIT-yellow';
+            break; 
+        case 'Apache License 2.0':
+            badgeURL = 'https://img.shields.io/badge/license-Apache%202.0-yellowgreen';
+            break;
+        case 'GNU General Public License v3.0':
+            badgeURL = 'https://img.shields.io/badge/license-GPLv3-blue';
+            break;
+        default: 
+            badgeURL = 'License not found';
+    }
+
+    return badgeURL;
 }
 
 // // TODO: Create a function to initialize app
