@@ -9,10 +9,11 @@ SO THAT I can quickly create a professional README for a new project
 ## Usage
 Open command line and follow prompts! 
 
-![Screenshot](assets/images/screenshot.png)
+![Video](/assets/images/ReadmeGeneratorVideo.mp4)
    
 
 ## Credits
+Source Code:
 ![sourceCode](https://github.com/coding-boot-camp/potential-enigma)
 
 

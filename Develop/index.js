@@ -63,9 +63,19 @@ const data =`
 
 # ${answers.title}
 
+## Table of Contents
+
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
+- [Credits](#credits)
+
+
 ## Description
 
 ${answers.description}
+
 
 ## Installation
 
@@ -89,7 +99,7 @@ This project is licensed under the ${answers.license}
 
 ## Questions
 
-Reach out with any questions and inquiries at ${answers.email}. You can also find similar work at ${answers.username}
+Reach out with any questions and inquiries at ${answers.email}. You can also find similar work at https://github.com/${answers.username}
 `;
 
         writeToFile('README.md', data);
@@ -127,9 +137,3 @@ function getBadge(license) {
 
     return badgeURL;
 }
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
