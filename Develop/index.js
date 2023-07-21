@@ -99,7 +99,7 @@ This project is licensed under the ${answers.license}
 
 ## Questions
 
-Reach out with any questions and inquiries at ${answers.email}. You can also find similar work at https://github.com/${answers.username}
+Reach out with any questions and inquiries at ${answers.email}. You can also find similar work at [${answers.username}](https://github.com${answers.username}) on GitHub
 `;
 
         writeToFile('README.md', data);
